@@ -1,0 +1,49 @@
+<div class="title">
+	<div class="center-block"><a href="#/session"><i class="fa fa-arrow-left settings_i"></i></a>Find Session</div>
+</div>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12">
+		<div class="ds_notice" ng-show="university==0">
+			<p>Please set your University in <a href="#/setting">settings</a> page.</p>
+		</div>
+	</div>
+	<div class="col-xs-12" ng-show="university==1">
+	   <form role="form" name="loginForm" novalidate>
+	     <p class="help-block" ng-show="findError || loginError">{{ findError }} {{ loginError }}<p>
+		 <div class="form-group" >
+		  <select  class="form-control" name="professor" id="select_professor" data-ng-model="searchform.professor" ng-change="getValue();" required>
+		  <option value=""> Select Professor</option>		
+		  <option ng-repeat="o in professor" value="{{ o.id }}">{{ o.professor }} </option>
+		  </select>		  
+		   <p ng-show="loginForm.professor.$invalid && !loginForm.professor.$pristine" class="help-block">Please select professor.</p>
+		</div>
+		<div class="form-group">
+		  <select  class="form-control" name="courses" data-ng-model="searchform.courses" ng-change="getCourseValue();">
+		  	<option value=""> Select Course</option>		
+		  	<option ng-repeat="o in courseoptions" value="{{ o.id }}">{{ o.name }} ({{ o.course_number }})</option>
+		  </select>		  
+		</div>
+		<div class="form-group">
+		  <input type="date" class="form-control" id="date"  name="date" ng-model="searchform.date" placeholder="Date" ng-change="getTimeVal()">
+		</div>
+		<button class="submit col-xs-12 btn btn-default" ng-click="find()">Find</button>
+		</form>
+	</div>
+	<div class="col-xs-12">
+		<button  class="searchsession submit col-xs-12 btn btn-default" ng-show="$index">{{ $index+1 }}. {{ x.courses | capitalize }} ({{ x.date }})</button>
+	</div>
+</div>
+<script>
+	$('input[type="date"]').each(function() {
+    var el = this, type = $(el).attr('type');
+    if ($(el).val() == '') $(el).attr('type', 'text');
+    $(el).focus(function() {
+        $(el).attr('type', type);
+        el.click();
+    });
+    $(el).blur(function() {
+        if ($(el).val() == '') $(el).attr('type', 'text');
+    });
+});
+</script>

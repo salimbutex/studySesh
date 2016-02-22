@@ -1,0 +1,33 @@
+<div class="title">
+	<div class="center-block">
+		<a href="#/find_session"><i class="fa fa-arrow-left settings_i"></i></a>Find Session
+	</div>
+</div>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12">
+	<p style="color:#2e6da4;" class="session_search" ng-show="findError">{{ findError }}</p>
+	    
+	    <a  ng-repeat="x in sessions" uib-dropdown on-toggle="toggled(open)">
+	    	<button   uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">
+	    		<div class="course_detail_container">
+	    			<span class="course_details">
+		    			{{ x.name | capitalize }}-{{ x.course_number}}
+		    			<span ng-if="x.session_type==0"><br>Location: {{ x.location }}</span>
+		    			<br>{{ x.started_on }}
+		    		</span>
+		    		<span class="course_lock">
+		    			<i  ng-class="x.session_type == 1 ? 'status fa fa-lock' : 'status fa fa-unlock'"></i>
+		    		</span>
+	    		</div>
+			</button>
+			<p  class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+				This is a <strong>{{ x.session_type==1 ? "Private" : "Public" }}</strong> session.
+				<strong style="color:#5CB85C;" ng-click="join( $index,x.group_id , x.session_type )"> 	
+					<img ng-src="{{x.session_type==1 && 'images/button.png' || 'images/join-now.png'}}" width="200px" />
+				</strong>
+			</p>
+		</a>
+
+	</div>	
+</div>

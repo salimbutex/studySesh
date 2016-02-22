@@ -1,0 +1,49 @@
+<div class="title chat_Title chart_title">
+	<div class="center-block"><a ng-click="chat_interval()" style="cursor:pointer;">
+	<i class="fa fa-arrow-left settings_i"></i></a>{{ course_name }}</div>
+</div>
+<a href="#/session" class="chat_df center-block logout_btn chat_logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12 chatDiv">
+	<p style='color:#2e6da4;'>{{ findError }}</p>
+	    <a href='#/chat/x.id/x.course_name' ng-repeat='x in sessions' uib-dropdown on-toggle="toggled(open)"><button  uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">{{ x.course_name | capitalize }} -{{ x.course_number}}
+		<i  ng-class="x.session_type == 1 ? 'status fa fa-lock' : 'status fa fa-unlock'"></i><p>{{ x.date }}</p></button> <!--p  class="uib-dropdown-menu" aria-labelledby="simple-dropdown">This is a <strong>{{ x.session_type==1 ? "Private" : "Public" }}</strong> group.<strong style='color:#5CB85C;' ng-click='join( $index,x.id , x.session_type )'> {{ x.session_type==1 ? "Send request for join" : "Join now" }}</strong></p--></a>
+		<div class="row row-margin" ng-repeat="chat in chats" ng-init="chat.sentbyme==1 ? showme=true : showme=false">
+			<div ng-hide="!showme" class="col-xs-9 pull-left">
+				<div ng-show='chat.type==0'  class="chat-text  chet-right">
+				{{ chat.message }}
+				</div>
+				<div ng-show='chat.type==1' class="chat-text1 chet-right1">
+				<img src="{{ chat.message }}" ng-click="openFile(chat.message)" height=100 width=100 />
+				</div>
+				<p>{{ chat.first_name }} - {{ chat.created }}</p>
+			</div>
+			<div ng-hide="!showme"  class="col-xs-3  cht-img chat_avatar">
+				<img src="{{ chat.pic }}">
+			</div>		
+			
+			
+			<div  ng-show="!showme" class="col-xs-3 pull-left cht-img chat_avatar">
+				<img src="{{ chat.pic }}">
+			</div>
+			<div ng-show="!showme" class="col-xs-9 pull-right">
+				<div ng-show='chat.type==0'  class="chat-text chet-left">
+				{{ chat.message }}
+				</div>
+				<div ng-show='chat.type==1' class="chat-text1 chet-left1">
+				<img src="{{ chat.message }}" ng-click="openFile(chat.message)" height=100 width=100 />
+				</div>
+				<p>{{ chat.first_name }} - {{ chat.created }}</p>
+			</div>
+	  </div>
+
+	</div>	
+</div>
+<footer class="chat-footer">
+	<i ng-click="takePic();" class="fa fa-file-image-o fileIcon"></i>
+	<i ng-click="takePic_();" class="fa fa-camera fileIcon" ></i>
+	<textarea ng-model="message" id="message_area">
+		What's on your mind?
+	</textarea>
+	<button ng-click="send()">Send</button>
+</footer>

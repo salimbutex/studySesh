@@ -1,0 +1,62 @@
+<div class="title">
+		<div class="center-block">
+		<a  href="javascript:history.back()"  ><i  class="fa fa-arrow-left settings_i"></i></a>Update Session</div>
+</div>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12"  ng-swipe-left="sc()">
+	   <form role="form" name="loginForm" novalidate>
+	     <p class="help-block" ng-show="loginError">{{ loginError }}<p>
+	<div class="form-group" >
+		  <select class="form-control" id="professor" name="professor" data-ng-model="userForm.professor" ng-change="getValue();" required>
+		  	<option value="">Select professor</option>		 
+		  	<option ng-repeat='o in professor' ng-selected="{{o.id==userForm.professor}}" value='{{ o.id }}' >{{ o.professor }} </option>
+		  </select>
+		   <p ng-show="loginForm.professor.$invalid && !loginForm.professor.$pristine" class="help-block">Please select professor.</p>
+		</div>
+		<div class="form-group">
+		  <select  class="form-control" name="courses" data-ng-model="userForm.courses" ng-click="getCourseValue();" required>
+		  <option value="">Select course</option>	 
+		  <option ng-repeat="o in courseoptions" value="{{ o.id }}" ng-selected="o.id==userForm.courses" >{{ o.name }} ({{ o.course_number }})</option>
+		  </select>		  
+		   <p ng-show="loginForm.courses.$invalid && !loginForm.courses.$pristine" class="help-block">Please select course.</p>
+		</div>	
+		<div class="form-group">
+		  <select class="form-control" name="time" id="time" data-ng-model="userForm.time"  required>
+		  <option value="">Select time</option>		 
+		  <option ng-repeat="o in timeoptions" value="{{ o.time }}" ng-selected="o.time==userForm.time" >{{ o.time }} </option>
+		  </select>
+		  <p ng-show="loginForm.time.$invalid && !loginForm.time.$pristine" class="help-block">Please select time.</p>
+		</div>
+	
+	    <div class="form-group">
+		  <input type="text" class="form-control"  name="location" ng-model="userForm.location" placeholder="Location" required>
+		   <p ng-show="loginForm.location.$invalid && !loginForm.location.$pristine" class="help-block">Please enter  location.<p>
+		</div>
+		<div class="form-group" >
+		  <input type="datetime-local" class="form-control"  name="date" ng-model="userForm.date" placeholder="Date"><p ng-show="loginForm.date.$invalid && !loginForm.date.$pristine" class="help-block">Please enter a valid date.<p>
+			<p ng-show="loginForm.date.$invalid && !loginForm.date.$pristine" class="help-block">Please enter valid date and time.<p>
+		</div>
+	
+	   <div class="form-group btn-group col-xs-12">
+	        <label class="btn btn-success col-xs-6" ng-model="userForm.session_type" uib-btn-radio="'1'" uncheckable>Private</label>
+	        <label class="btn btn-success col-xs-6" ng-model="userForm.session_type" uib-btn-radio="'0'" uncheckable>Public</label>
+		</div>	
+	
+		<button ng-click="save_session()" class="submit col-xs-12 btn btn-default">Save Session</button>
+	  </form>
+	  </div>	
+</div>
+<script>
+	$('input[type="datetime-local"]').each(function() {
+    var el = this, type = $(el).attr('type');
+    if ($(el).val() == '') $(el).attr('type', 'text');
+    $(el).focus(function() {
+        $(el).attr('type', type);
+        el.click();
+    });
+    $(el).blur(function() {
+        if ($(el).val() == '') $(el).attr('type', 'text');
+    });
+});
+</script>

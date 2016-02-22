@@ -1,0 +1,106 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+ul li {margin: 0; padding: 0; list-style: none; }
+img {max-width: 100%; border: none; }
+a {text-decoration: none; }
+body {background-color: #ffdbb8; height: 100%; }
+.icon{font-size:7vw; }
+i{color: #fff;    padding: 0px 5px 0px 5px !important;}
+.full_width {width: 100%; margin: 0; padding: 0; float: left; }
+.main, .row1, .enter, .exit, .logo {width: 100%; margin: 0; padding: 0; float: left; }
+.wrapper {width: 100%; margin: auto; max-width: 1200px; }
+.main .row1 {margin: 13% 0 20%; padding: 0 9%; }
+.logo img {width: 100%; }
+.col-xs-12.center-block.center.pic.main_logo.settings_picture {margin-top: 5px; }
+.index .buttons {float: left; margin-top: 70%; width: 100%; }
+.enter a {background: #ff686d none repeat scroll 0 0; color: #ffffff; float: left; font-size: 5vw; padding: 6% 0; text-align: center; text-transform: uppercase; width: 100%; }
+.exit a {background: none; color: #ffffff; float: left; font-size: 5vw; padding: 6% 0; text-align: center; text-transform: uppercase; width: 100%; border: 3px solid #fff; }
+.exit {margin: 7% 0 0; }
+.title {background-color: #f77500; color: #fff; font-size: 6vw; padding: 20px 0 15px; text-align: center; }
+.center{text-align:center; }
+.main_logo {margin: 20px 0 18px; }
+button {margin: 5px 0 !important; }
+.settings_picture_area {background-color: rgba(164, 115, 46, 0.59); border-radius: 7px; margin: 0 auto; overflow: hidden; padding: 10px; text-align: center; width: 170px; }
+form.settings_forms_ds {margin-bottom: 25px; overflow: hidden; }
+.mandatory { color: red; float: left; margin-left: -12px; margin-top:14px;}
+.form-control{height:44px !important; font-size: 5vw !important; border: 1px solid #F77500 !important; }
+.submit{background: #F77500; color: #fff; border: none; font-size: 5vw; padding: 10px 0px 10px 0px;}
+.fbsubmit{background: #337ab7; color: #fff; border: none; font-size: 5vw; padding: 10px 0px 10px 0px;}
+.esubmit{background: #D1291C; color: #fff; border: none; font-size: 5vw; padding: 10px 0px 10px 0px;}
+.searchsession {background: #f77500 none repeat scroll 0 0; border: 2px solid #fff; color: #fff; margin-top: 10px; padding-left: 10px; text-align: left; }
+.searchsession p {clear: both; color: #fff; display: block; font-size: 14px; margin: 0; }
+.course_detail_container {clear: both; display: block; overflow: hidden; }
+.forget_password.center-block {float: left; }
+button.searchsession span.time_lock {float: right; width: 50%; }
+.time_lock .status.fa.fa-unlock {clear: both; display: block; }
+.help-block {color: #BD601C !important;}
+.course_lock {float: right; }
+.course_timer {float: right; font-size: 15px; padding-right: 10px; }
+button.searchsession span.course_details {float: left; font-size: 14px; padding-bottom: 4px; }
+button.searchsession .status.fa {padding-top: 4px !important; }
+.view {width: 100%; padding-left: 0em; position:absolute; top: 0; left: 0; }
+.slideLeft.ng-enter, .slideLeft.ng-leave, .slideRight.ng-enter, .slideRight.ng-leave  {-webkit-transition:all 1s; transition:all 1s; }
+.slideLeft.ng-enter {left:100%; }
+.slideLeft.ng-enter.ng-enter-active {left:0; }
+.slideLeft.ng-leave.ng-leave-active {left:-100%; }
+.slideRight.ng-enter {left:-100%; }
+.slideRight.ng-enter.ng-enter-active {left:0; }
+.slideRight.ng-leave.ng-leave-active {left:100%; }
+.slide {position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.slide.ng-enter,
+.slide.ng-leave {-webkit-transition: all 1s ease; transition: all 1s ease; }
+.slide.ng-enter {left: 100%; }
+.slide.ng-enter-active {left: 0; }
+.slide.ng-leave {left: 0; }
+.slide.ng-leave-active {left: -100%; }
+.fade {position: absolute; top: 0; left: 0; right: 0; height: 100%; opacity: 1; }
+.fade.ng-enter,.fade.ng-leave {-webkit-transition: all 1s ease; transition: all 1s ease; }
+.fade.ng-enter {opacity: 0; }
+.fade.ng-enter-active {opacity: 1; }
+.notification_list.ng-binding {color: #000; font-size: 16px; line-height: 20px; padding-bottom: 15px; }
+.fade.ng-leave {opacity: 1; }
+.form-group.btn-group.col-xs-12 {padding-left: 0; padding-right: 0; }
+.settings_i {display: block; float: left; margin-left: 15px; margin-top: 12px; }
+.notifications_i {float: right; margin-right: 15px; margin-top: 12px; }
+.chat_df.center-block.logout_btn {position: fixed; right: 0; z-index: 9; }
+.fade.ng-leave-active {opacity: 0; }
+.status{color: #2e6da4; float: right; margin-right: 0.5em; }
+.open>.dropdown-menu {display: block; position: relative; padding: 0.6em 0.2em 0.4em 0.7em;} .chat-text{    border-radius: 4px;float:left;width:100%;padding:5px;background:#13364C;position:relative;color:#fff;font-size:13px;} .row-margin{margin-bottom:15px; }	
+.chet-left:after {width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 10px solid transparent; content: ""; border-right: 7px solid #13364C; position: absolute; left: -6px; top: 0; }
+.chet-right:after {content:""; position:absolute; right:-6px;top:0; width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 7px solid #13364C; }
+.cht-img img {border-radius: 100%; height: 40px; width: 40px; }
+.chat-footer{position:fixed;bottom:0;right:0;left:0;width:100%;padding: 4px; background: rgba(158, 152, 152, 0.68);display:table-cell; }
+.chat-footer span {display: inline-block; border-radius: 100%; background: #F77500; padding: 0; width: 12%; font-size: 33px; font-family: initial; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; float:left; }
+.chat-text1 {float: left; width: 100%; padding: 5px; background: rgba(66, 120, 154, 0.37); position: relative; color: #fff; border-radius: 4px; font-size: 13px;}
+.chat-footer textarea {display: inline-block; height: 59px; width: 58%; font-size: 01.1em; padding-top: 10px; float: left; margin-top: 2px; margin-left: 3px; margin-right: 12px; }
+.chet-left1:after {width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 10px solid transparent; content: ""; border-right: 7px solid rgba(178, 171, 160, 0.71); position: absolute; left: -6px; top: 0; }
+.chet-right1:after {content: ""; position: absolute; right: -6px; top: 0; width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 7px solid rgba(178, 171, 160, 0.81); }
+.chat-body{background:#FFDBBA!important;}
+.chat-footer button {float: left; margin-top: 4px; height: 38px; width: 15%; text-align: center; border-radius: 3px; background: #F77500; border: none; color: #fff; font-size: 17px; }
+.chatDiv{  margin-bottom: 53px;}
+.title.ng-scope.chat_Title {background-color: #f77500; color: #fff; font-size: 6vw; height: 60px; padding: 15px 0; position: fixed; text-align: center; width: 100%; z-index: 99; }
+.fileIcon{float: left; font-size: 24px; margin-top: 8px;}
+a.not_register_yet, a.forget_password {color: maroon; float: right; font-style: italic; font-weight: 300; padding-bottom: 20px; padding-top: 5px; }
+.center-block.logout_btn.ng-scope {background-color: #f77500; border-radius: 0 0 5px 5px; border-top: 1px solid #ddd; color: #fff; cursor: pointer; float: right; font-weight: 500; margin-bottom: 20px; margin-left: 5px; padding: 5px 15px; }
+.center-block.logout_btn.ng-scope:hover {background-color: #de6b04; color: #fff; text-decoration: none; }
+.my_session_page > a {clear: both; display: block; overflow: hidden; }
+.uib-dropdown-menu.dropdown-menu strong {cursor: pointer; }
+div.users_lists p.ng-binding {background: rgba(255, 255, 255, 0.42) none repeat scroll 0 0; border-radius: 5px; font-size: 16px; padding: 15px; text-align: left; }
+div.users_lists p.ng-binding span {color: maroon; cursor: pointer; float: right; text-align: right; }
+.sessions_list_m.ng-scope button {font-size: 16px; line-height: 20px; }
+.center-block.logout_btn.chat_logout_btn.ng-scope {margin-top: 60px; }
+.ds_notice > p {color: maroon; display: inline-block; padding: 10px 0; text-align: left; width: 100%; }
+.my_session_page.ds_dashboard button, .my_session_page.ds_dashboard button.btn.submit.btn-default {text-shadow: 0 0 0 !important; }
+div.spinner {display: none; position: fixed; text-align: center; top: 35%; width: 100%; z-index: 2; }
+.notification_list.ng-binding {color: #fff; }
+.btn-default {text-shadow: 0 0 0 #fff !important; }
+.btn-default.active, .btn-default:active, .open > .dropdown-toggle.btn-default {background-color: #de6b04; }
+.pull-left .chat-text.chet-right.ng-binding::after {border-left-color: orange; }
+.pull-left .chat-text.chet-right.ng-binding {background-color: orange; }
+.btn-default.active, .btn-default:active, .open > .dropdown-toggle.btn-default {color: #fff !important; }
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default.focus:active, .btn-default:active:focus, .btn-default:active:hover, .open > .dropdown-toggle.btn-default.focus, .open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default:hover {background-color: #de6b04; color: #fff; }
+.btn-default:focus, .btn-default:hover {background-color: #de6b04; color: #fff; }
+
+
+
+

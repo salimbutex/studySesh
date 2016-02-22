@@ -1,0 +1,87 @@
+<div class="title">
+		<div class="center-block"><a href='#/session'><i  style='float:left;' class="fa fa-arrow-left"></i></a>Find Session</div>
+</div>
+<a href="#/logout" class="center-block logout_btn">Logout</a>
+<div class="extra_space">
+&nbsp;
+</div>
+<div class="container">
+	<div class="col-xs-12">
+	   <form role="form" name='loginForm' novalidate >
+	     <p class="help-block" >{{ loginError }}<p>
+		 
+		 <div class="form-group" >
+		  <select class="form-control" name='professor' data-ng-model="searchform.professor" ng-change="getValue();" >
+		  <option value=""> Select Professor</option>		
+		  <option ng-repeat='o in professor' value='{{ o.id }}'>{{ o.professor }} </option>
+		  </select>		  
+		   <p ng-show="loginForm.professor.$invalid && !loginForm.professor.$pristine" class="help-block">Please select professor.</p>
+		</div>
+		
+		
+		<!--div class="form-group" ng-show="getSelection"-->
+		<div class="form-group">
+		  <select  class="form-control" name='courses' data-ng-model="searchform.courses" ng-change="getCourseValue();">
+		  <option value="">Select Course</option>		
+		  <option ng-repeat='o in courseoptions' value='{{ o.id }}'>{{ o.name }} ({{ o.course_number }})<!-- -{{ o.instructor }} --></option>
+		  </select>		  
+		   <p ng-show="loginForm.courses.$invalid && !loginForm.courses.$pristine" class="help-block">Please enter a valid course.</p>
+		</div>	
+		
+		
+		
+		<!--div class="form-group" ng-show="getTime"-->
+		<div class="form-group">
+		  <!--input type="datetime-local" class="form-control" id="email"  name='date' ng-model="userForm.date" placeholder="Time"-->
+		  <select class="form-control" name='time' id="time" data-ng-model="searchform.time" >
+		  <option value="">Select Time</option>		
+		  <option ng-repeat='o in timeoptions' value='{{ o.time }}'>{{ o.time }} </option>
+		  </select>	
+		   <!--p ng-show="loginForm.time.$invalid && !loginForm.time.$pristine" class="help-block">Please enter a valid time.<p-->
+		</div>
+		 
+		<!--div class="form-group">
+		  <input type="text" class="form-control" id="email"  name='course' ng-model="searchform.course" placeholder="Course">
+		   <p ng-show="loginForm.course.$invalid && !loginForm.course.$pristine" class="help-block">Please enter a valid course.</p>
+		</div-->
+		<!--OLD - div class="form-group">
+		  <select  class="form-control" name='courses' data-ng-model="userForm.courses">
+		  <option ng-repeat='o in courseoptions' value='{{ o.name }}'>{{ o.name }}-{{ o.instructor }}</option>
+		  </select>		  
+		   <p ng-show="loginForm.courses.$invalid && !loginForm.courses.$pristine" class="help-block">Please enter a valid course.</p>
+		</div-- OLD>		
+		<!--div class="form-group">
+		  <input type="text" class="form-control" id="email"  name='course_number' ng-model="searchform.course_number" placeholder="Course number">
+		   <p ng-show="loginForm.course_number.$invalid && !loginForm.course_number.$pristine" class="help-block">Please enter a valid course number.</p>
+		</div-->
+		
+		<div class="form-group">
+		  <!--input type="date" class="form-control" id="email"  name='date' ng-model="searchform.date" placeholder="Date" ng-change="getTimeVal()" style="width:16.9em  !important;" -->	
+	<input type="datetime-local" class="form-control" id="email"  name='date' ng-model="searchform.date" placeholder="Date" ng-change="getTimeVal()" style="width:16.9em  !important;">		  
+		   <!--p ng-show="loginForm.date.$invalid && !loginForm.date.$pristine" class="help-block">Please enter a valid date.</p-->
+		</div>
+		
+	    <!--a href="#/find_result/{{ searchform.course }}/{{ searchform.course_number }}/{{ searchform.date }}">
+		<button type="submit" class="submit col-xs-12 btn btn-default">Find</button></a-->
+		
+		
+		<a href="#/find_result/{{ searchform.professor }}/{{ searchform.courses }}/{{ searchform.time}}/{{ searchform.date1 }}" ng-show="searchform.professor && searchform.courses && searchform.time && searchform.date1">
+		<button type="submit" class="submit col-xs-12 btn btn-default">Find</button></a>
+		
+		<a href="" ng-click="showptag=true" ng-hide="searchform.professor && searchform.courses && searchform.time && searchform.date1" >
+		<button class="submit col-xs-12 btn btn-default">Find</button></a>	
+		
+		
+		
+		<!--p ng-hide="showptag && searchform.professor && searchform.courses && searchform.time && searchform.date1" class="help-block">Please fill all the details.</p-->
+		
+		<p ng-hide="showptag && searchform.professor && searchform.courses" class="help-block">Please fill all the details.</p>
+		
+		</form>	 
+		
+	</div>	
+	<div class="col-xs-12">
+	    <!--a href='#/open_session/{{ x.id }}' ng-repeat='x in sessions' --><button  class="searchsession submit col-xs-12 btn btn-default" ng-show='$index'>{{$index+1 }}. {{ x.courses | capitalize }} ({{ x.date }})</button><!--/a-->
+	
+	</div>
+</div>

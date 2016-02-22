@@ -1,0 +1,34 @@
+<div class="title">
+	<div class="center-block">
+		<a  href="javascript:history.back()" >
+		<i class="fa fa-arrow-left settings_i"></i>
+		</a>Requests
+	</div>
+</div>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12">
+	<p style="color:#2e6da4;" ng-show="findError">{{ findError }}</p>
+	    <a  ng-repeat="x in requests"  uib-dropdown on-toggle="toggled(open)">
+	    <button uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">
+	    	<p ng-show="x.n_type=='request'" class="notification_list">
+	    	<strong>Add member request :</strong>
+	    	<br>Session : {{ x.name | capitalize }} - {{ x.course_number}}
+	    	<br>Sender : {{x.first_name}} {{x.last_name}} <br>email :{{x.email}}</p>
+			<p ng-show="x.n_type=='request'">{{ x.date }}</p>
+
+			<p ng-show="x.n_type=='expire'">
+				Dear, Following session has expired.
+				<br> {{ x.name | capitalize }} - {{ x.course_number}} <br> {{ x.location}}
+			</p>
+		</button> 
+		<p  class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+			<strong ng-show="x.n_type=='request'" style="color:#575748" ng-click="cancel(x.request_id,$index)">Cancel</strong> <span ng-show="x.n_type=='request'">|  |</span> 
+			<strong ng-show="x.n_type=='request'" style="color:#D1291C" ng-click="accept(x.request_id,$index)">Accept</strong>
+
+			<strong ng-show="x.n_type=='expire'" style="color:#575748" ng-click="extend(x.request_id, 'cancel', x.id)">Cancel</strong> <span ng-show="x.n_type=='expire'">|  |</span>  
+			<strong ng-show="x.n_type=='expire'" style="color:#D1291C" ng-click="extend(x.request_id,'extend', x.id)">Extend</strong>
+		</p>
+		</a>
+	</div>	
+</div>

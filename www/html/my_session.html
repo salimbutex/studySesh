@@ -1,0 +1,25 @@
+<div class="title">
+		<div class="center-block"><a href="#/session"><i  class="fa fa-arrow-left settings_i"></i></a>Joined Session</div>
+</div>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12" style="margin-bottom:23px !important;">
+	<p style="color:#2e6da4;"  class="session_search" ng-show="findError">{{ findError }}</p>
+	    
+	    <a href="#/chat/{{ x.id }}/{{ x.course_name }}" ng-repeat="x in sessions" class="sessions_list_m">
+	    	<button   uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">
+	    		<div class="course_detail_container">
+	    			<span class="course_details">
+		    			{{ x.course_name | capitalize }}-{{ x.course_number}}
+		    			<br>Location : {{ x.location}}
+		    			<br>{{ x.started_on }}
+		    		</span>
+		    		<span class="course_lock">
+		    			<i  ng-class="x.session_type == 1 ? 'status fa fa-lock' : 'status fa fa-unlock'"></i>
+		    		</span>
+	    		</div>
+			</button>
+		</a>
+		
+	</div>	
+</div>

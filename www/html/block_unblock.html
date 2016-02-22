@@ -1,0 +1,17 @@
+<div class="title">
+		<div class="center-block"><a href='#/session'><i  style='float:left;' class="fa fa-arrow-left"></i></a>Session Users</div>
+</div>
+<a href="#/logout" class="center-block logout_btn">Logout</a>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="extra_space">
+&nbsp;
+</div>
+<div class="container">
+	<div class="col-xs-12" style="margin-bottom:23px !important;">
+	<p style='color:#2e6da4;'>{{ findError }}</p>
+	
+	 <div ng-repeat="x in requests" class="users_lists">
+		<p>{{ x.name | capitalize }}<span ng-click="x.statusmem == 0 ? session_block(x.id) : session_unblock(x.id)">{{ x.statusmem == 0 ? 'Block this User' : 'Unblock this User' }}</span></p>
+	</div>
+	</div>	
+</div>

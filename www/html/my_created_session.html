@@ -1,0 +1,33 @@
+<div class="title">
+		<div class="center-block"><a  href="javascript:history.back()" ><i  style='float:left;' class="fa fa-arrow-left"></i></a>My session</div>
+</div>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12">
+	<p style="color:#2e6da4;" class="session_search" ng-show="findError">{{ findError }}</p>
+	    
+	    <a  ng-repeat="x in sessions"  uib-dropdown on-toggle="toggled(open)">
+	    	<button   uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">
+	    		<div class="course_detail_container">
+	    			<span class="course_details">
+		    			{{ x.course_name | capitalize }}-{{ x.course_number}}
+		    			<br>Location : {{ x.location}}
+		    			<div count-down tooltip1="{{x.expire_on}}"></div>
+		    		</span>
+		    		<span class="course_lock">
+		    			<i  ng-class="x.session_type == 1 ? 'status fa fa-lock' : 'status fa fa-unlock'"></i>
+		    		</span>
+	    		</div>
+	    		<div class="course_timer">
+	    			{{ x.started_on }}
+	    		</div>
+			</button>
+			<p class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+				<strong style="color:#575748" ng-click="edit(x.id)">Edit</strong> |  
+				<strong ng-click="x.status=!x.status; live(x.id)" style="color:#FF8000">
+					{{ x.status==1?"Inactive":"Active"}}</strong>  | 
+				<strong style="color:#D1291C" ng-click="session_delete(x.id)">Delete</strong>
+			</p>
+		</a>
+	</div>	
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>StudySesh</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" >
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <script src="cordova.js"></script>
+  <!---------------Angular JS-------------------->
+  <script src="js/min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/ng_route.js"></script>
+  <script src="js/ng_animate.js"></script>
+  <script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+  <script src="js/ng_main.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <!---------------------- End -------------------->
+  <script>	 
+    document.addEventListener("deviceready", yourCallbackFunction, false);
+    function yourCallbackFunction(){ 
+      param={}; param.appId='1665911160362661';
+     openFB.init(param, 'http://localhost/openfb/oauthcallback.html', window.localStorage);
+    }
+  </script>	
+</head>
+<body ng-app="mainApp" >
+  <div class="spinner">
+      <img src="images/loading.gif" alt="Loading..."/>
+  </div>
+  <ng-view class="mainview">	
+  </ng-view>
+</body>
+</html>

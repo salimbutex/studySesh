@@ -1,0 +1,53 @@
+<div class="title">
+	<div class="center-block">
+		<a href="#/session"><i  class="fa fa-arrow-left settings_i"></i></a>Setting
+	</div>
+</div>
+<a href="#/session" class="center-block logout_btn">Home</a>
+<div class="container">
+	<div class="col-xs-12 center-block center pic main_logo settings_picture">
+		<div class="settings_picture_area">
+			<img src="{{ profilepic }}">
+			<i ng-click="takePic();" class="fa fa-file-image-o fileIcon"></i>	
+			<i ng-click="takePic_();" class="fa fa-camera fileIcon" style="float:right;"></i>
+		</div>
+	</div>
+	<div class="col-xs-12"  ng-swipe-left="sc()">
+	   <form role="form" name="loginForm" novalidate class="settings_forms_ds">
+	     <p  class="help-block"  ng-show="registerError">{{ registerError }}</p>
+		<div class="form-group">
+		  <input type="text" class="form-control" id="first_name"  name="first_name" ng-model="userForm.first_name" placeholder="First name" required>
+		   <p ng-show="loginForm.first_name.$invalid && !loginForm.first_name.$pristine" class="help-block">Please enter valid first name.</p>
+		</div>
+		<div class="form-group">
+		  <input type="text" class="form-control" id="last_name"  name="last_name" ng-model="userForm.last_name" placeholder="Last name" required>
+		   <p ng-show="loginForm.last_name.$invalid && !loginForm.last_name.$pristine" class="help-block">Please enter a valid last name.</p>
+		</div>
+		<div class="form-group">
+		  <input type="email" class="form-control" id="email"  name="email" ng-model="userForm.email" placeholder="Email" required>
+		   <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Please enter valid email.</p>
+		</div>
+		<div class="form-group">
+		  <input type="text" class="form-control" id="phone"  name="phone" ng-model="userForm.phone" placeholder="Phone">
+		</div>
+		<div class="form-group">
+		   <select  class="form-control" name="institute" data-ng-model="userForm.institute" required>
+		   	<option value="">Select University</option>
+		  	<option ng-repeat="o in instituteoptions"  ng-selected="{{o.id==userForm.institute}}" value="{{ o.id }}">{{ o.name }}</option>
+		  </select>	
+		   <p ng-show="loginForm.institute.$invalid && !loginForm.institute.$pristine" class="help-block">Please select university.</p>
+		</div>	
+		<div class="form-group" ng-hide="fblogin">
+			<input type="password" class="form-control" id="oldpassword" ng-minlength=6 ng-model="userForm.oldpassword" ng-maxlength=18 name="oldpassword" placeholder="Enter current/old password" required>
+			<p ng-show="loginForm.oldpassword.$invalid && !loginForm.oldpassword.$pristine" class="help-block">Please enter password.</p>
+		</div>
+		<div class="form-group" ng-hide="fblogin">
+			<input type="password" class="form-control" id="pwd" ng-minlength=6 ng-model="userForm.password" ng-maxlength=18 name="password" placeholder="Enter new password">
+			<p class="error help-block" ng-show="loginForm.password.$error.minlength"> Too short!</p>
+			<p class="error help-block" ng-show="loginForm.password.$error.maxlength">Too long!</p>
+		</div>
+		<button type="submit" class="submit col-xs-12 btn btn-default" ng-click="processsettingForm()">Save</button>
+		<a href="#/logout"><button class="submit col-xs-12 btn btn-default">Logout</button></a>
+	</form>
+	</div>	
+</div>
